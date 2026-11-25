@@ -70,7 +70,7 @@
   const CATEGORIES = {
     housewarming: { label: "Housewarming" },
     lighting: { label: "Lighting" },
-    "name-board": { label: "Name Board" },
+    "name-board": { label: "Entrance Decor" },
     "office-inauguration": { label: "Office Inauguration" },
     wedding: { label: "Wedding" },
   };
@@ -98,17 +98,17 @@
     { id: "lt-9", cat: "lighting", file: "9", title: "Lighting decor" },
     { id: "lt-10", cat: "lighting", file: "10", title: "Lighting decor" },
 
-    { id: "nb-intro", cat: "name-board", file: "intro", title: "Name board decor" },
-    { id: "nb-1", cat: "name-board", file: "1", title: "Name board decor" },
-    { id: "nb-2", cat: "name-board", file: "2", title: "Name board decor" },
-    { id: "nb-3", cat: "name-board", file: "3", title: "Name board decor" },
-    { id: "nb-4", cat: "name-board", file: "4", title: "Name board decor" },
-    { id: "nb-5", cat: "name-board", file: "5", title: "Name board decor" },
-    { id: "nb-6", cat: "name-board", file: "6", title: "Name board decor" },
-    { id: "nb-7", cat: "name-board", file: "7", title: "Name board decor" },
-    { id: "nb-8", cat: "name-board", file: "8", title: "Name board decor" },
-    { id: "nb-9", cat: "name-board", file: "9", title: "Name board decor" },
-    { id: "nb-10", cat: "name-board", file: "10", title: "Name board decor" },
+    { id: "nb-intro", cat: "name-board", file: "intro", title: "Entrance Decor" },
+    { id: "nb-1", cat: "name-board", file: "1", title: "Entrance Decor" },
+    { id: "nb-2", cat: "name-board", file: "2", title: "Entrance Decor" },
+    { id: "nb-3", cat: "name-board", file: "3", title: "Entrance Decor" },
+    { id: "nb-4", cat: "name-board", file: "4", title: "Entrance Decor" },
+    { id: "nb-5", cat: "name-board", file: "5", title: "Entrance Decor" },
+    { id: "nb-6", cat: "name-board", file: "6", title: "Entrance Decor" },
+    { id: "nb-7", cat: "name-board", file: "7", title: "Entrance Decor" },
+    { id: "nb-8", cat: "name-board", file: "8", title: "Entrance Decor" },
+    { id: "nb-9", cat: "name-board", file: "9", title: "Entrance Decor" },
+    { id: "nb-10", cat: "name-board", file: "10", title: "Entrance Decor" },
 
     { id: "oi-intro", cat: "office-inauguration", file: "intro", title: "Office inauguration decor" },
     { id: "oi-1", cat: "office-inauguration", file: "1", title: "Office inauguration decor" },
@@ -137,9 +137,38 @@
   const showcaseGrid = $("#showcase-grid");
   const isFeatured = (look) => look.file === "intro" || look.file === "1" || look.file === "2" || look.file === "3";
 
+  const interleaveByCat = (items, getCat) => {
+    const buckets = {};
+    items.forEach((item) => {
+      const cat = getCat(item);
+      (buckets[cat] ||= []).push(item);
+    });
+    const cats = Object.keys(buckets);
+    const mixed = [];
+    let i = 0;
+    let more = true;
+    while (more) {
+      more = false;
+      cats.forEach((cat) => {
+        if (buckets[cat][i]) {
+          mixed.push(buckets[cat][i]);
+          more = true;
+        }
+      });
+      i += 1;
+    }
+    return mixed;
+  };
+
+  const orderedLooks = (() => {
+    const featured = interleaveByCat(LOOKS.filter(isFeatured), (l) => l.cat);
+    const rest = LOOKS.filter((l) => !isFeatured(l));
+    return [...featured, ...rest];
+  })();
+
   const renderShowcase = () => {
     if (!showcaseGrid) return;
-    showcaseGrid.innerHTML = LOOKS.map((look) => {
+    showcaseGrid.innerHTML = orderedLooks.map((look) => {
       const cat = CATEGORIES[look.cat];
       const img = `assets/showcase/${look.cat}/${look.file}.webp`;
       const featured = isFeatured(look) ? "1" : "0";
@@ -272,12 +301,21 @@
     const btn = filterBtns.find((b) => b.dataset.filter === f) || filterBtns[0];
     filterBtns.forEach((b) => b.classList.toggle("is-active", b === btn));
     cards = $$(".style-card");
-    const show = cards.filter((c) => (f === "all" ? c.dataset.featured === "1" : c.dataset.cat === f));
+    let show;
+    if (f === "all") {
+      show = interleaveByCat(
+        cards.filter((c) => c.dataset.featured === "1"),
+        (c) => c.dataset.cat
+      );
+    } else {
+      show = cards.filter((c) => c.dataset.cat === f);
+    }
     const hide = cards.filter((c) => !show.includes(c));
 
     const reveal = () => {
       hide.forEach((c) => c.classList.add("is-hidden"));
       show.forEach((c) => {
+        showcaseGrid.appendChild(c);
         c.classList.remove("is-hidden");
         if (hasGSAP) gsap.set(c, { clearProps: "opacity,visibility,transform" });
       });
@@ -305,12 +343,30 @@
     })
   );
 
-  $$("[data-jump-filter]").forEach((link) =>
-    link.addEventListener("click", () => {
-      const f = link.dataset.jumpFilter;
-      setTimeout(() => applyFilter(f), 50);
-    })
-  );
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("[data-jump-filter]");
+    if (!link) return;
+    const f = link.dataset.jumpFilter;
+    if (f) setTimeout(() => applyFilter(f), 50);
+  });
+
+  /* ---------------------------------------------------------
+     Specialities carousel (continuous auto-scroll)
+     --------------------------------------------------------- */
+  const carousel = $("[data-carousel]");
+  if (carousel) {
+    const track = $("[data-carousel-track]", carousel);
+    if (track && !reduceMotion) {
+      const originals = [...track.children];
+      originals.forEach((card) => {
+        const clone = card.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        clone.tabIndex = -1;
+        track.appendChild(clone);
+      });
+      track.classList.add("is-ready");
+    }
+  }
 
   /* ---------------------------------------------------------
      Reviews slider
@@ -372,20 +428,18 @@
     return;
   }
 
-  // hero intro
+  // home / hero intro
   gsap
-    .timeline({ defaults: { ease: "power4.out" }, delay: 0.1 })
-    .fromTo(".hero__title .line > span", { yPercent: 110, autoAlpha: 0 }, { yPercent: 0, autoAlpha: 1, duration: 1.1, stagger: 0.12 })
-    .fromTo(
-      ".reveal-img",
-      { clipPath: "inset(0 100% 0 0 round 22px)", autoAlpha: 1 },
-      { clipPath: "inset(0 0% 0 0 round 22px)", duration: 1.4, stagger: 0.15, ease: "expo.inOut" },
-      0.1
-    )
-    .fromTo(".reveal-img img", { scale: 1.3 }, { scale: 1, duration: 1.8, stagger: 0.15, ease: "power3.out" }, 0.1)
-    .fromTo(".hero [data-anim]", { y: 30, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.9, stagger: 0.1 }, 0.5)
-    .fromTo(".stats", { y: 50, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1, onStart: runCounters }, 0.9)
-    .fromTo(".stat", { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6, stagger: 0.08 }, 1.05);
+    .timeline({ defaults: { ease: "power4.out" }, delay: 0.08 })
+    .fromTo(".hero .eyebrow", { y: 16, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6 })
+    .fromTo(".hero__title", { y: 28, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.95 }, 0.08)
+    .fromTo(".hero__lead", { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.75 }, 0.2)
+    .fromTo(".hero__actions", { y: 18, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7 }, 0.32)
+    .fromTo(".hero__img", { autoAlpha: 0, x: 28 }, { autoAlpha: 1, x: 0, duration: 1.05, ease: "power3.out" }, 0.12)
+    .fromTo(".value-prop", { y: 16, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.55, stagger: 0.07 }, 0.55)
+    .fromTo(".speciality-card", { y: 28, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7, stagger: 0.08 }, 0.7);
+
+  runCounters();
 
   // generic reveals (outside hero)
   const fromVars = { up: { y: 50 }, left: { x: -80 }, right: { x: 80 } };
@@ -430,11 +484,11 @@
   gsap.to(".hero__big img", { yPercent: 8, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
   gsap.fromTo(".cta-banner__bg", { yPercent: -10 }, { yPercent: 10, ease: "none", scrollTrigger: { trigger: ".cta-banner", start: "top bottom", end: "bottom top", scrub: true } });
   gsap.fromTo(".why__inset", { y: 60 }, { y: -20, ease: "none", scrollTrigger: { trigger: ".why", start: "top bottom", end: "bottom top", scrub: true } });
-  gsap.fromTo(".about__media img", { scale: 1.08 }, { scale: 1, ease: "none", scrollTrigger: { trigger: ".about", start: "top bottom", end: "center center", scrub: true } });
+  gsap.fromTo(".about__frame img", { scale: 1.08 }, { scale: 1, ease: "none", scrollTrigger: { trigger: ".about", start: "top bottom", end: "center center", scrub: true } });
 
   // active nav link
   const navLinks = $$(".nav a");
-  ["home", "about", "services", "styles", "contact"].forEach((id) => {
+  ["home", "about", "specialities", "styles", "contact"].forEach((id) => {
     ScrollTrigger.create({
       trigger: `#${id}`,
       start: "top 45%",

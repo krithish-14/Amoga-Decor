@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Amoga Decor — Interior Decoration &amp; Styling</title>
-  <meta name="description" content="Amoga Decor designs and decorates homes in every style — modern, Scandinavian, Japandi, boho, classic luxury, industrial and traditional Indian." />
+  <title>Amoga Decor — Wedding &amp; Event Decor</title>
+  <meta name="description" content="Amoga Decor creates themed, customised wedding and event decorations — from intimate gatherings to grand celebrations." />
 
   <link rel="icon" type="image/png" href="assets/brand/favicon.png" />
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,600;0,700;1,800;1,900&family=Dancing+Script:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <script>document.documentElement.classList.add("js");</script>
 </head>
@@ -43,12 +43,19 @@
       <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
       <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
       <symbol id="i-quote" viewBox="0 0 24 24"><path d="M4 7h6v6c0 3.5-2 6-5.5 7l-.8-1.6C6 17.6 7 16.2 7.2 14H4zM14 7h6v6c0 3.5-2 6-5.5 7l-.8-1.6c2.3-.8 3.3-2.2 3.5-4.4H14z" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="i-gallery" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></symbol>
+      <symbol id="i-cubes" viewBox="0 0 24 24"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="M12 22V12M3 7l9 5 9-5"/></symbol>
+      <symbol id="i-flower" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2c2 3 2 5 0 7-2-2-2-4 0-7zM12 15c2 2 2 4 0 7-2-3-2-5 0-7zM2 12c3-2 5-2 7 0-2 2-4 2-7 0zM15 12c2-2 4-2 7 0-3 2-5 2-7 0z"/></symbol>
+      <symbol id="i-drape" viewBox="0 0 24 24"><path d="M4 3h16M6 3v18M18 3v18M6 8c2 2 4 2 6 0s4-2 6 0M6 14c2 2 4 2 6 0s4-2 6 0"/></symbol>
+      <symbol id="i-diamond" viewBox="0 0 24 24"><path d="M6 3h12l4 7-10 11L2 10z"/><path d="M2 10h20M10 3l-2 7 4 11 4-11-2-7"/></symbol>
+      <symbol id="i-lotus" viewBox="0 0 24 24"><path d="M12 20c-4-3-7-6-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4-3 7-7 10z"/><path d="M12 8V4M9 9 6 6M15 9l3-3"/></symbol>
+      <symbol id="i-badge" viewBox="0 0 24 24"><circle cx="12" cy="10" r="7"/><path d="m9 10 2 2 4-4M8.5 16 7 22l5-2 5 2-1.5-6"/></symbol>
     </defs>
   </svg>
 
   <!-- ================= TOP BAR ================= -->
   <div class="topbar">
-    <div class="container topbar__inner">
+    <div class="topbar__inner">
       <div class="topbar__contact">
         <a href="tel:+919840080401"><svg class="ic"><use href="#i-phone"/></svg>+91 98400 80401</a>
         <a href="mailto:hello@amogadecor.com"><svg class="ic"><use href="#i-mail"/></svg>hello@amogadecor.com</a>
@@ -69,160 +76,158 @@
       <nav class="nav" aria-label="Primary">
         <a href="#home" class="is-active">Home</a>
         <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#styles">Showcase</a>
+        <a href="#specialities">Decor Services</a>
+        <a href="#styles">Galleries</a>
         <a href="#contact">Contact</a>
       </nav>
 
+      <a href="#contact" class="btn btn--green header__cta"><svg class="ic"><use href="#i-calendar"/></svg> Plan Your Decor</a>
       <button class="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </header>
 
   <main>
-    <!-- ================= HERO ================= -->
-    <section class="hero" id="home">
-      <div class="container hero__grid">
+    <!-- ================= HOME (matches mockup) ================= -->
+    <section class="home" id="home">
+      <div class="hero">
         <div class="hero__left">
-          <h1 class="hero__title">
-            <span class="line"><span>Creating Beautiful</span></span>
-            <span class="line"><span>Decor for</span></span>
-            <span class="line"><span class="script">Every Occasion.</span></span>
-          </h1>
-          <p class="hero__lead" data-anim="up">Before the first guest arrives, the atmosphere should tell a story. Our decor combines flowers, fabrics, colours, textures, and lighting to transform any venue into a space filled with beauty and excitement.</p>
-          <div class="hero__actions" data-anim="up">
-            <a href="#styles" class="btn btn--outline">Explore Our Decor</a>
-            <a href="#contact" class="btn btn--green">Plan Your Event</a>
-          </div>
-          <div class="hero__small reveal-img">
-            <img src="assets/rooms/hero-2.webp?v=3" alt="Amoga Decor event styling setup" />
-            <span class="tag">Event Decor</span>
+          <p class="eyebrow">Wedding &amp; Event Decor</p>
+          <h1 class="hero__title"><span>Complete</span> Decor Solutions for Every Celebration</h1>
+          <p class="hero__lead">From intimate gatherings to grand weddings, we create themed, customised and stunning decor setups that bring your vision to life.</p>
+          <div class="hero__actions">
+            <a href="#specialities" class="btn btn--green">Explore Decor Styles <svg class="ic"><use href="#i-arrow"/></svg></a>
+            <a href="#styles" class="btn btn--ghost"><svg class="ic"><use href="#i-gallery"/></svg> View Gallery</a>
           </div>
         </div>
-
         <div class="hero__right">
-          <div class="hero__big reveal-img">
-            <img src="assets/rooms/hero-1.webp?v=3" alt="Amoga Decor wedding and event decoration" />
+          <img class="hero__img" src="assets/rooms/hero-1.webp?v=6" alt="Amoga Decor wedding and event decoration" />
+        </div>
+      </div>
+
+      <div class="value-props" aria-label="Why Amoga Decor">
+        <div class="container value-props__row">
+          <div class="value-prop">
+            <svg class="ic"><use href="#i-cubes"/></svg>
+            <span>Customised Decor Concepts</span>
           </div>
-          <div class="stats">
-            <div class="stat"><span class="stat__ic"><svg class="ic"><use href="#i-award"/></svg></span><div><b><em data-count="12">0</em>+</b><small>Years experience</small></div></div>
-            <div class="stat"><span class="stat__ic"><svg class="ic"><use href="#i-home"/></svg></span><div><b><em data-count="850">0</em>+</b><small>Events decorated</small></div></div>
-            <div class="stat"><span class="stat__ic"><svg class="ic"><use href="#i-users"/></svg></span><div><b><em data-count="40">0</em>+</b><small>Expert designers</small></div></div>
-            <div class="stat"><span class="stat__ic"><svg class="ic"><use href="#i-star"/></svg></span><div><b><em data-count="4.9" data-decimals="1">0</em>/5</b><small>Client rating</small></div></div>
+          <div class="value-prop">
+            <svg class="ic"><use href="#i-flower"/></svg>
+            <span>Fresh &amp; Premium Florals</span>
+          </div>
+          <div class="value-prop">
+            <svg class="ic"><use href="#i-drape"/></svg>
+            <span>Themed Setups for All Occasions</span>
+          </div>
+          <div class="value-prop">
+            <svg class="ic"><use href="#i-diamond"/></svg>
+            <span>End-to-End Decor Execution</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="specialities" id="specialities">
+        <div class="container">
+          <h2 class="specialities__title">Our Decor Specialities</h2>
+          <div class="speciality-carousel" data-carousel aria-label="Decor specialities carousel">
+            <div class="speciality-track" data-carousel-track>
+              <a href="#styles" class="speciality-card" data-jump-filter="wedding">
+                <img src="assets/services/wedding-decor.webp" alt="Wedding Decor" loading="lazy" />
+                <span class="speciality-card__label"><svg class="ic"><use href="#i-flower"/></svg>Wedding Decor</span>
+              </a>
+              <a href="#styles" class="speciality-card">
+                <img src="assets/services/engagement-decor.webp" alt="Engagement Decor" loading="lazy" />
+                <span class="speciality-card__label"><svg class="ic"><use href="#i-spark"/></svg>Engagement Decor</span>
+              </a>
+              <a href="#styles" class="speciality-card">
+                <img src="assets/services/reception-decor.webp" alt="Reception Decor" loading="lazy" />
+                <span class="speciality-card__label"><svg class="ic"><use href="#i-drape"/></svg>Reception Decor</span>
+              </a>
+              <a href="#styles" class="speciality-card">
+                <img src="assets/services/birthday-party-decor.webp" alt="Birthday &amp; Social Decor" loading="lazy" />
+                <span class="speciality-card__label"><svg class="ic"><use href="#i-star"/></svg>Birthday &amp; Social Decor</span>
+              </a>
+              <a href="#styles" class="speciality-card" data-jump-filter="housewarming">
+                <img src="assets/services/housewarming-decor.webp" alt="Housewarming Decor" loading="lazy" />
+                <span class="speciality-card__label"><svg class="ic"><use href="#i-home"/></svg>Housewarming Decor</span>
+              </a>
+              <a href="#styles" class="speciality-card">
+                <img src="assets/services/corporate-event-decor.webp" alt="Corporate Event Decor" loading="lazy" />
+                <span class="speciality-card__label"><svg class="ic"><use href="#i-award"/></svg>Corporate Event Decor</span>
+              </a>
+              <a href="#styles" class="speciality-card">
+                <img src="assets/services/stage-and-venue-decor.webp" alt="Stage &amp; Venue Decor" loading="lazy" />
+                <span class="speciality-card__label"><svg class="ic"><use href="#i-drape"/></svg>Stage &amp; Venue Decor</span>
+              </a>
+              <a href="#styles" class="speciality-card">
+                <img src="assets/services/school-and-college-event-decor.webp" alt="School &amp; College Event Decor" loading="lazy" />
+                <span class="speciality-card__label"><svg class="ic"><use href="#i-users"/></svg>School &amp; College Event Decor</span>
+              </a>
+              <a href="#styles" class="speciality-card">
+                <img src="assets/services/product-launch-decor.webp" alt="Product Launch Decor" loading="lazy" />
+                <span class="speciality-card__label"><svg class="ic"><use href="#i-spark"/></svg>Product Launch Decor</span>
+              </a>
+              <a href="#styles" class="speciality-card">
+                <img src="assets/services/government-and-public-event-decor.webp" alt="Government &amp; Public Event Decor" loading="lazy" />
+                <span class="speciality-card__label"><svg class="ic"><use href="#i-shield"/></svg>Government &amp; Public Event Decor</span>
+              </a>
+              <a href="#styles" class="speciality-card">
+                <img src="assets/services/outdoor-event-decor.webp" alt="Outdoor Event Decor" loading="lazy" />
+                <span class="speciality-card__label"><svg class="ic"><use href="#i-flower"/></svg>Outdoor Event Decor</span>
+              </a>
+              <a href="#styles" class="speciality-card" data-jump-filter="wedding">
+                <img src="assets/services/destination-wedding-decor.webp" alt="Destination Wedding Decor" loading="lazy" />
+                <span class="speciality-card__label"><svg class="ic"><use href="#i-star"/></svg>Destination Wedding Decor</span>
+              </a>
+              <a href="#styles" class="speciality-card">
+                <img src="assets/services/private-party-decor.webp" alt="Private Party Decor" loading="lazy" />
+                <span class="speciality-card__label"><svg class="ic"><use href="#i-users"/></svg>Private Party Decor</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- ================= RIBBON ================= -->
-    <div class="ribbon" aria-label="Event decor services">
-      <div class="ribbon__track">
-        <ul class="ribbon__group">
-          <li>Corporate Event Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>Wedding Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>Engagement Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>Reception Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>Birthday Party Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>Housewarming Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>Stage &amp; Venue Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>School &amp; College Event Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>Product Launch Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>Government &amp; Public Event Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>Outdoor Event Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>Destination Wedding Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>Private Party Decor</li><li><svg><use href="#i-spark"/></svg></li>
-        </ul>
-        <ul class="ribbon__group" aria-hidden="true">
-          <li>Corporate Event Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>Wedding Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>Engagement Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>Reception Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>Birthday Party Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>Housewarming Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>Stage &amp; Venue Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>School &amp; College Event Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>Product Launch Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>Government &amp; Public Event Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>Outdoor Event Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>Destination Wedding Decor</li><li><svg><use href="#i-spark"/></svg></li>
-          <li>Private Party Decor</li><li><svg><use href="#i-spark"/></svg></li>
-        </ul>
-      </div>
-    </div>
 
     <!-- ================= ABOUT ================= -->
-    <section class="about section section--cream" id="about">
+    <section class="about section" id="about">
       <div class="container about__grid">
-        <div class="about__media" data-anim="left">
-          <img src="assets/rooms/about.webp?v=2" alt="Amoga Decor event decoration setup" />
+        <div class="about__visual" data-anim="left">
+          <div class="about__panel" aria-hidden="true"></div>
+          <div class="about__florals" aria-hidden="true">
+            <img class="about__wreath about__wreath--main" src="assets/brand/floral-wreath.png" alt="" />
+            <img class="about__wreath about__wreath--soft" src="assets/brand/floral-wreath.png" alt="" />
+          </div>
+          <div class="about__frame">
+            <img src="assets/rooms/about.webp?v=4" alt="Amoga Decor event decoration setup" />
+          </div>
         </div>
         <div class="about__content" data-anim="right">
-          <p>Amoga Decor creates beautifully styled event spaces with premium fabric decor, floral arrangements, and lighting for weddings, corporate events, private celebrations, concerts, and large-scale occasions. With a focus on detail, atmosphere, and visual impact, we design each setup to suit the occasion and give every venue its own character, from intimate gatherings to grand celebrations.</p>
-          <a href="#services" class="btn btn--green">Learn More</a>
+          <h2 class="h-sec">About Amoga Decor</h2>
+          <p class="about__kicker">Creative Decor for Memorable Celebrations</p>
+          <p>Amoga Decor creates beautifully styled event spaces with premium décor, floral arrangements and lighting for weddings, corporate events, private celebrations and more. We bring your vision to life with creative concepts, quality execution and attention to every detail.</p>
+          <a href="#specialities" class="btn btn--green">Explore Our Services <svg class="ic"><use href="#i-arrow"/></svg></a>
         </div>
       </div>
     </section>
 
-    <!-- ================= WHAT WE DO ================= -->
-    <section class="services section" id="services">
+    <!-- ================= DECORATION SHOWCASE ================= -->
+    <section class="styles section" id="styles">
       <div class="container">
         <div class="sec-head" data-anim="up">
-          <h2 class="h-sec">What <span>We Do</span></h2>
-          <p>Complete event decoration — from intimate celebrations to grand stages and destination weddings.</p>
+          <h2 class="h-sec">Our Decorations <span>Showcase</span></h2>
+          <p>Browse real setups across Housewarming, Lighting, Entrance Decor, Office Inauguration and Wedding.</p>
         </div>
-        <div class="service-grid">
-          <article class="service-card">
-            <h3>Corporate Event Decor</h3>
-            <div class="service-card__img"><img src="assets/services/corporate-event-decor.webp" alt="Corporate event decoration" loading="lazy" /></div>
-          </article>
-          <article class="service-card">
-            <h3>Wedding Decor</h3>
-            <div class="service-card__img"><img src="assets/services/wedding-decor.webp" alt="Wedding decoration" loading="lazy" /></div>
-          </article>
-          <article class="service-card">
-            <h3>Engagement Decor</h3>
-            <div class="service-card__img"><img src="assets/services/engagement-decor.webp" alt="Engagement decoration" loading="lazy" /></div>
-          </article>
-          <article class="service-card">
-            <h3>Reception Decor</h3>
-            <div class="service-card__img"><img src="assets/services/reception-decor.webp" alt="Reception decoration" loading="lazy" /></div>
-          </article>
-          <article class="service-card">
-            <h3>Birthday Party Decor</h3>
-            <div class="service-card__img"><img src="assets/services/birthday-party-decor.webp" alt="Birthday party decoration" loading="lazy" /></div>
-          </article>
-          <article class="service-card">
-            <h3>Housewarming Decor</h3>
-            <div class="service-card__img"><img src="assets/services/housewarming-decor.webp" alt="Housewarming decoration" loading="lazy" /></div>
-          </article>
-          <article class="service-card">
-            <h3>Stage &amp; Venue Decor</h3>
-            <div class="service-card__img"><img src="assets/services/stage-and-venue-decor.webp" alt="Stage and venue decoration" loading="lazy" /></div>
-          </article>
-          <article class="service-card">
-            <h3>School &amp; College Event Decor</h3>
-            <div class="service-card__img"><img src="assets/services/school-and-college-event-decor.webp" alt="School and college event decoration" loading="lazy" /></div>
-          </article>
-          <article class="service-card">
-            <h3>Product Launch Decor</h3>
-            <div class="service-card__img"><img src="assets/services/product-launch-decor.webp" alt="Product launch decoration" loading="lazy" /></div>
-          </article>
-          <article class="service-card">
-            <h3>Government &amp; Public Event Decor</h3>
-            <div class="service-card__img"><img src="assets/services/government-and-public-event-decor.webp" alt="Government and public event decoration" loading="lazy" /></div>
-          </article>
-          <article class="service-card">
-            <h3>Outdoor Event Decor</h3>
-            <div class="service-card__img"><img src="assets/services/outdoor-event-decor.webp" alt="Outdoor event decoration" loading="lazy" /></div>
-          </article>
-          <article class="service-card">
-            <h3>Destination Wedding Decor</h3>
-            <div class="service-card__img"><img src="assets/services/destination-wedding-decor.webp" alt="Destination wedding decoration" loading="lazy" /></div>
-          </article>
-          <article class="service-card">
-            <h3>Private Party Decor</h3>
-            <div class="service-card__img"><img src="assets/services/private-party-decor.webp" alt="Private party decoration" loading="lazy" /></div>
-          </article>
+
+        <div class="filters" role="tablist" data-anim="up">
+          <button class="is-active" data-filter="all">All</button>
+          <button data-filter="housewarming">Housewarming</button>
+          <button data-filter="lighting">Lighting</button>
+          <button data-filter="name-board">Entrance Decor</button>
+          <button data-filter="office-inauguration">Office Inauguration</button>
+          <button data-filter="wedding">Wedding</button>
         </div>
+
+        <div class="style-grid" id="showcase-grid"></div>
       </div>
     </section>
 
@@ -235,27 +240,6 @@
         <div class="cta-banner__actions">
           <a href="#contact" class="btn btn--green">Start Planning Your Event</a>
         </div>
-      </div>
-    </section>
-
-    <!-- ================= DECORATION SHOWCASE ================= -->
-    <section class="styles section" id="styles">
-      <div class="container">
-        <div class="sec-head" data-anim="up">
-          <h2 class="h-sec">Our Decoration <span>Showcase</span></h2>
-          <p>Browse real setups across Housewarming, Lighting, Name Board, Office Inauguration and Wedding.</p>
-        </div>
-
-        <div class="filters" role="tablist" data-anim="up">
-          <button class="is-active" data-filter="all">All</button>
-          <button data-filter="housewarming">Housewarming</button>
-          <button data-filter="lighting">Lighting</button>
-          <button data-filter="name-board">Name Board</button>
-          <button data-filter="office-inauguration">Office Inauguration</button>
-          <button data-filter="wedding">Wedding</button>
-        </div>
-
-        <div class="style-grid" id="showcase-grid"></div>
       </div>
     </section>
 
@@ -282,47 +266,6 @@
       </div>
     </section>
 
-    <!-- ================= UNDER ONE ROOF + REVIEWS ================= -->
-    <section class="roof section">
-      <div class="container roof__grid">
-        <div class="roof__content">
-          <h2 class="h-sec" data-anim="up">Complete Decoration <span>Under One Roof</span></h2>
-          <div class="checks">
-            <div class="check"><svg class="ic"><use href="#i-check"/></svg><div><h4>Corporate &amp; Brand Events</h4><p>Sharp setups that put your brand in the spotlight.</p></div></div>
-            <div class="check"><svg class="ic"><use href="#i-check"/></svg><div><h4>Weddings &amp; Celebrations</h4><p>Beautiful decor that makes the day feel even more special.</p></div></div>
-            <div class="check"><svg class="ic"><use href="#i-check"/></svg><div><h4>Private Celebrations</h4><p>Warm, personal setups made for your kind of celebration.</p></div></div>
-            <div class="check"><svg class="ic"><use href="#i-check"/></svg><div><h4>Concerts &amp; Live Events</h4><p>Bold decor and lighting built for the energy of the show.</p></div></div>
-            <div class="check"><svg class="ic"><use href="#i-check"/></svg><div><h4>School &amp; College Events</h4><p>Stage setups that make big moments feel even bigger.</p></div></div>
-            <div class="check"><svg class="ic"><use href="#i-check"/></svg><div><h4>Public &amp; Outdoor Events</h4><p>Striking decor that brings large spaces to life.</p></div></div>
-          </div>
-        </div>
-
-        <aside class="reviews" data-anim="right">
-          <svg class="ic reviews__quote"><use href="#i-quote"/></svg>
-          <h3>Customer Reviews</h3>
-          <div class="reviews__track">
-            <blockquote class="review is-active">
-              <p>"Amoga Decor turned our plain 3BHK into a warm Japandi home. The 3D designs matched the final result perfectly and they finished before Diwali!"</p>
-              <footer><span class="avatar">PR</span><div><b>Priya Raghavan</b><small>Chennai</small></div></footer>
-            </blockquote>
-            <blockquote class="review">
-              <p>"Loved how they blended traditional Indian elements with modern comfort. Our pooja room is the highlight for every guest who visits."</p>
-              <footer><span class="avatar">AK</span><div><b>Arjun Kulkarni</b><small>Pune</small></div></footer>
-            </blockquote>
-            <blockquote class="review">
-              <p>"Professional, transparent pricing and great taste. The team handled everything — we just picked a style and moved in."</p>
-              <footer><span class="avatar">SM</span><div><b>Sneha Menon</b><small>Kochi</small></div></footer>
-            </blockquote>
-          </div>
-          <div class="reviews__dots">
-            <button class="is-active" aria-label="Review 1"></button>
-            <button aria-label="Review 2"></button>
-            <button aria-label="Review 3"></button>
-          </div>
-        </aside>
-      </div>
-    </section>
-
     <!-- ================= SERVICE AREAS ================= -->
     <section class="areas section section--cream">
       <div class="container areas__grid">
@@ -344,6 +287,39 @@
           <div class="area"><svg class="ic"><use href="#i-pin"/></svg><div><b>Mumbai</b><small>Maharashtra</small></div></div>
           <div class="area"><svg class="ic"><use href="#i-pin"/></svg><div><b>Pune</b><small>Maharashtra</small></div></div>
         </div>
+      </div>
+    </section>
+
+    <!-- ================= UNDER ONE ROOF + REVIEWS ================= -->
+    <section class="roof section">
+      <div class="container">
+        <div class="sec-head" data-anim="up">
+          <h2 class="h-sec">Complete Decorations <span>Under One Roof</span></h2>
+          <p>From first concept to final setup, our clients trust Amoga Decor to make every celebration look unforgettable.</p>
+        </div>
+        <aside class="reviews reviews--wide" data-anim="up">
+          <svg class="ic reviews__quote"><use href="#i-quote"/></svg>
+          <h3>Customer Reviews</h3>
+          <div class="reviews__track">
+            <blockquote class="review is-active">
+              <p>"Amoga Decor transformed our wedding venue overnight. The floral mandap, lighting and stage details looked even better than the designs — every guest asked who did our decor."</p>
+              <footer><span class="avatar">PR</span><div><b>Priya Raghavan</b><small>Wedding, Chennai</small></div></footer>
+            </blockquote>
+            <blockquote class="review">
+              <p>"For our product launch, the team delivered a sharp corporate setup with perfect branding, stage styling and coordination. Professional, fast and completely stress-free."</p>
+              <footer><span class="avatar">AK</span><div><b>Arjun Kulkarni</b><small>Corporate Event, Pune</small></div></footer>
+            </blockquote>
+            <blockquote class="review">
+              <p>"Our reception looked magical. From the entrance décor to the floral backdrop, everything was elegant and on time. Highly recommended for anyone planning a celebration."</p>
+              <footer><span class="avatar">SM</span><div><b>Sneha Menon</b><small>Reception, Kochi</small></div></footer>
+            </blockquote>
+          </div>
+          <div class="reviews__dots">
+            <button class="is-active" aria-label="Review 1"></button>
+            <button aria-label="Review 2"></button>
+            <button aria-label="Review 3"></button>
+          </div>
+        </aside>
       </div>
     </section>
 
@@ -397,7 +373,7 @@
       <div class="footer__links">
         <div>
           <h4>Quick Links</h4>
-          <ul><li><a href="#about">About Us</a></li><li><a href="#services">Services</a></li><li><a href="#styles">Decoration Showcase</a></li><li><a href="#contact">Contact</a></li></ul>
+          <ul><li><a href="#about">About Us</a></li><li><a href="#specialities">Services</a></li><li><a href="#styles">Decoration Showcase</a></li><li><a href="#contact">Contact</a></li></ul>
         </div>
         <div>
           <h4>Support</h4>
