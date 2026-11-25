@@ -727,21 +727,18 @@ ul { list-style: none; }
 .areas__points li { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 500; color: var(--ink); }
 .areas__points span { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 8px; background: var(--green); color: #fff; }
 .areas__points .ic { width: 16px; height: 16px; }
-.area-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.area {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 18px;
-  border-radius: 10px;
-  background: var(--white);
-  box-shadow: var(--shadow);
-  transition: transform .3s, box-shadow .3s;
+.areas__map {
+  width: 100%;
+  max-width: 560px;
+  justify-self: center;
 }
-.area:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-.area .ic { color: var(--orange); width: 22px; height: 22px; }
-.area b { display: block; font-family: var(--f-head); font-weight: 700; font-size: 15px; color: var(--ink); line-height: 1.2; }
-.area small { font-size: 12px; color: var(--muted); }
+.areas__map img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  object-fit: contain;
+}
 
 /* =========================================================
    Consultation
@@ -977,7 +974,8 @@ ul { list-style: none; }
   .service-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .service-card h3 { min-height: 0; font-size: 14px; }
   .checks, .why__list { grid-template-columns: 1fr; }
-  .process-grid, .area-list, .footer__grid { grid-template-columns: 1fr; }
+  .process-grid, .footer__grid { grid-template-columns: 1fr; }
+  .areas__map { max-width: 420px; margin-inline: auto; }
   .footer__links { grid-template-columns: 1fr 1fr; gap: 24px; }
 }
 
