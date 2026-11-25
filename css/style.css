@@ -500,31 +500,55 @@ ul { list-style: none; }
   gap: 0;
   width: 100%;
   margin-top: auto;
-  padding: 22px 0;
-  border-top: 1px solid rgba(197, 160, 89, .32);
-  border-bottom: 1px solid rgba(197, 160, 89, .32);
+  padding: 26px 0;
+  border-top: 1px solid rgba(197, 160, 89, .38);
+  border-bottom: 1px solid rgba(197, 160, 89, .38);
 }
 .about__points li {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 10px;
-  padding: 4px 10px;
+  gap: 12px;
+  padding: 2px 12px;
   text-align: center;
-  font-size: 12.5px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
   line-height: 1.35;
   color: var(--ink);
-  border-right: 1px solid rgba(0, 64, 48, .14);
+  border-right: 1px solid rgba(0, 64, 48, .12);
 }
 .about__points li:last-child { border-right: 0; }
-.about__points .ic {
-  width: 28px;
-  height: 28px;
+.about__point-icon {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 2.25px solid #b8924a;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(184, 140, 66, .16), transparent 70%);
+  color: #b8924a;
   flex: none;
-  color: var(--gold);
-  stroke-width: 1.5;
+  padding: 7px;
+  box-sizing: border-box;
+}
+.about__point-icon .ic {
+  width: 100%;
+  height: 100%;
+  max-width: 36px;
+  max-height: 36px;
+  stroke-width: 2.15;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.about__point-icon img {
+  width: 100%;
+  height: 100%;
+  max-width: 38px;
+  max-height: 38px;
+  object-fit: contain;
+  display: block;
 }
 .about__cta {
   margin-top: 0;
@@ -992,9 +1016,11 @@ ul { list-style: none; }
   .about__wreath--main { top: 12px; left: 6px; width: 88px; }
   .about__wreath--soft { width: 64px; bottom: 20px; left: 2px; }
   .about__frame { width: min(100%, 250px); border-radius: 140px 140px 14px 14px; }
-  .about__points { gap: 14px 0; padding: 16px 0; }
-  .about__points li { font-size: 11.5px; padding: 0 6px; }
-  .about__points .ic { width: 24px; height: 24px; }
+  .about__points { gap: 14px 0; padding: 18px 0; }
+  .about__points li { font-size: 11.5px; padding: 0 6px; gap: 10px; }
+  .about__point-icon { width: 50px; height: 50px; padding: 7px; }
+  .about__point-icon .ic,
+  .about__point-icon img { max-width: 30px; max-height: 30px; }
   .specialities__title::before,
   .specialities__title::after { width: 36px; }
   .style-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
