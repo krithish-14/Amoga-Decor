@@ -350,6 +350,7 @@
     if (f) setTimeout(() => applyFilter(f), 50);
   });
 
+
   /* ---------------------------------------------------------
      Specialities carousel (continuous auto-scroll)
      --------------------------------------------------------- */
@@ -357,8 +358,7 @@
   if (carousel) {
     const track = $("[data-carousel-track]", carousel);
     if (track && !reduceMotion) {
-      const originals = [...track.children];
-      originals.forEach((card) => {
+      [...track.children].forEach((card) => {
         const clone = card.cloneNode(true);
         clone.setAttribute("aria-hidden", "true");
         clone.tabIndex = -1;
@@ -436,8 +436,7 @@
     .fromTo(".hero__lead", { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.75 }, 0.2)
     .fromTo(".hero__actions", { y: 18, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7 }, 0.32)
     .fromTo(".hero__img", { autoAlpha: 0, x: 28 }, { autoAlpha: 1, x: 0, duration: 1.05, ease: "power3.out" }, 0.12)
-    .fromTo(".value-prop", { y: 16, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.55, stagger: 0.07 }, 0.55)
-    .fromTo(".speciality-card", { y: 28, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7, stagger: 0.08 }, 0.7);
+    .fromTo(".speciality-card", { y: 22, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.55, stagger: 0.04 }, 0.5);
 
   runCounters();
 
