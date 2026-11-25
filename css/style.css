@@ -721,7 +721,7 @@ ul { list-style: none; }
 /* =========================================================
    Service areas
    ========================================================= */
-.areas__grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: center; }
+.areas__grid { display: grid; grid-template-columns: 0.85fr 1.35fr; gap: 48px; align-items: center; }
 .areas__content p { margin-top: 16px; }
 .areas__points { margin-top: 24px; display: grid; gap: 12px; }
 .areas__points li { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 500; color: var(--ink); }
@@ -729,8 +729,8 @@ ul { list-style: none; }
 .areas__points .ic { width: 16px; height: 16px; }
 .areas__map {
   width: 100%;
-  max-width: 560px;
-  justify-self: center;
+  max-width: 720px;
+  justify-self: end;
 }
 .areas__map img {
   width: 100%;
@@ -738,6 +738,8 @@ ul { list-style: none; }
   display: block;
   border-radius: 16px;
   object-fit: contain;
+  transform: scale(1.06);
+  transform-origin: center;
 }
 
 /* =========================================================
@@ -975,7 +977,8 @@ ul { list-style: none; }
   .service-card h3 { min-height: 0; font-size: 14px; }
   .checks, .why__list { grid-template-columns: 1fr; }
   .process-grid, .footer__grid { grid-template-columns: 1fr; }
-  .areas__map { max-width: 420px; margin-inline: auto; }
+  .areas__map { max-width: 560px; margin-inline: auto; justify-self: center; }
+  .areas__map img { transform: none; }
   .footer__links { grid-template-columns: 1fr 1fr; gap: 24px; }
 }
 
